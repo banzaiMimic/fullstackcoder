@@ -1,6 +1,8 @@
 package com.devstackio.fullstackcoder.entity.enemy;
 
+import com.devstackio.fullstackcoder.Constants;
 import com.devstackio.fullstackcoder.entity.EntityState;
+import com.devstackio.fullstackcoder.utils.MathUtils;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.SpriteSheet;
 
@@ -13,7 +15,7 @@ import org.newdawn.slick.SpriteSheet;
 public class FlyingEnemy extends Animation {
     
     protected static final float X_BOUNDS = 200;
-    protected float speed = 1;
+    protected float speed = .5f;
     protected float x;
     protected float y;
     protected boolean stationary = false;
@@ -21,6 +23,8 @@ public class FlyingEnemy extends Animation {
 
     public FlyingEnemy(SpriteSheet frames, int duration) {
         super(frames, duration);
+        this.x = Constants.INSTANCE.getGAME_WIDTH();
+        this.y = MathUtils.INSTANCE.getRandom( 200, 700 );
     }
 
     public void setStationary(boolean bool) {

@@ -1,6 +1,8 @@
 package com.devstackio.fullstackcoder.code;
 
 import com.devstackio.fullstackcoder.Constants;
+import java.awt.event.KeyEvent;
+import javax.swing.KeyStroke;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 
@@ -23,17 +25,12 @@ public class CodeLine {
     }
     
     public void ioDraw( Graphics g ) {
-        System.out.println("----");
-        System.out.println("line x is : " + this.x);
-        System.out.println("line y is : " + this.y);
-        System.out.println("line line is : " + this.line);
         g.drawString( this.line, this.x, this.y );
     }
     
     public void ioUpdate() {
         if ( !this.stationary ) {
             if( this.canMove() ) {
-                System.out.println("speed is : " + this.speed);
                 this.x-= this.speed;
             } else {
                 this.stationary = true;
@@ -47,6 +44,29 @@ public class CodeLine {
     
     private boolean canMove() {
         return ( this.x >= X_BOUNDS ) ? true : false;
+    }
+    
+    public char getFirstChar() {
+        try {
+            
+            if( this.line.length() > 0 ) {
+                return this.line.charAt(0);
+            }
+            
+        } catch( Exception e ) {
+            e.printStackTrace();
+        }
+        return ' ';
+    }
+    
+    /**
+     * user pressed correct key, remove first char from line
+     */
+    public void hit() {
+        int len = this.line.length();
+        if( len > 0 ) {
+            this.line = this.line.substring(1,len);
+        }
     }
     
 }
