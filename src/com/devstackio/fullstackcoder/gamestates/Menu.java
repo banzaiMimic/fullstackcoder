@@ -38,6 +38,8 @@ public class Menu extends BasicGameState {
             case Input.KEY_5:
                 this.game.enterState( 5 );
                 break;
+            case Input.KEY_6:
+                this.game.enterState( 6 );
             default:
                 break;
         }
@@ -53,6 +55,7 @@ public class Menu extends BasicGameState {
         g.drawString( "-- Development Tests -- [ hit Escape to return to Menu ]", 100, 160 );
         g.drawString( "4. Enemy Fly Test", 100, 180 );
         g.drawString( "5. CodeBlock Test", 100, 200 );
+        g.drawString( "6. Full CodeBlock Test [ with FlyingEnemies! ]", 100, 220 );
     }
 
     @Override

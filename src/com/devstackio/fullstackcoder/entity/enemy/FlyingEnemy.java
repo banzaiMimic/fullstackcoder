@@ -12,7 +12,7 @@ import org.newdawn.slick.SpriteSheet;
  * this is for future addition of a 'base' that will be attacked by said entity.
  * @author devstackio
  */
-public class FlyingEnemy extends Animation {
+public class FlyingEnemy extends Animation implements EnemyMold {
     
     protected static final float X_BOUNDS = 200;
     protected float speed = .5f;
@@ -27,10 +27,12 @@ public class FlyingEnemy extends Animation {
         this.y = MathUtils.INSTANCE.getRandom( 200, 700 );
     }
 
+    @Override
     public void setStationary(boolean bool) {
         this.stationary = bool;
     }
 
+    @Override
     public boolean getStationary() {
         return this.stationary;
     }
