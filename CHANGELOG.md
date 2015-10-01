@@ -1,6 +1,8 @@
-<b>ChangeLog</b><br /><br />
+<b>ChangeLog</b>
+
 [ no playable release finished yet just building the main blocks for the game ]
 
+<p>
 - building an EnemyFactory to randomly generate enemies
 - EnemyBlock added to match CodeBlocks
 - EnemyMold interface added since we want to switch between different enemies easier...
@@ -28,3 +30,4 @@
 -----
 - created initial project 
 - setup basic functionality for displaying text and jumping into game states
+</p>
