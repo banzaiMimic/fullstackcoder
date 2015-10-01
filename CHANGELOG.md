@@ -1,5 +1,6 @@
 <b>ChangeLog</b><br /><br />
 
+- added 8bit AudioControl for music!!
 - escape key will take user to Menu
 - added SharedGameState for all shared functionality between extended BasicGameStates [ each game state will now re-initialize upon entering state so that level and tests will fully restart ]
 - added basic functionality for type checking and CodeBlock completion

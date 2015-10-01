@@ -1,12 +1,12 @@
 package com.devstackio.fullstackcoder;
 
+import com.devstackio.fullstackcoder.audio.AudioControl;
 import com.devstackio.fullstackcoder.gamestates.Game;
 import com.devstackio.fullstackcoder.gamestates.Menu;
 import com.devstackio.fullstackcoder.gamestates.SplashScreen;
 import com.devstackio.fullstackcoder.gamestates.tests.CodeBlockTest;
 import com.devstackio.fullstackcoder.gamestates.tests.EnemyFlyTest;
 import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -34,7 +34,8 @@ public class FullStackCoder extends StateBasedGame {
         
         //this.enterState( ENEMY_FLY_TEST );
         this.enterState( CODE_BLOCK_TEST );
-        
+        AudioControl audioController = new AudioControl();
+        audioController.playMusic();
     }
 
 }
