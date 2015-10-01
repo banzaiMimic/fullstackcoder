@@ -7,6 +7,11 @@ import org.newdawn.slick.SlickException;
 
 public class Application {
     
+    private static final String GAME_TITLE = "FullStackCoder";
+    private static final int GAME_WIDTH = 1024;
+    private static final int GAME_HEIGHT = 768;
+    private static final int FRAME_RATE = 60;
+    
     public static void main(String[] args) {
         
         System.setProperty("org.lwjgl.librarypath",
@@ -16,9 +21,9 @@ public class Application {
         
         try {
             
-            appgc = new AppGameContainer( new FullStackCoder("FullStackCoder"));
-            appgc.setDisplayMode(1024,768,false);
-            appgc.setTargetFrameRate(60);
+            appgc = new AppGameContainer( new FullStackCoder( GAME_TITLE ));
+            appgc.setDisplayMode( GAME_WIDTH,GAME_HEIGHT,false );
+            appgc.setTargetFrameRate( FRAME_RATE );
             appgc.start();
             
         } catch( SlickException e) {

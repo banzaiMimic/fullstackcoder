@@ -11,7 +11,7 @@ import org.newdawn.slick.state.StateBasedGame;
 public class Menu extends BasicGameState {
     
     private StateBasedGame game;
-
+    
     @Override
     public int getID() {
         return 1;
@@ -32,6 +32,9 @@ public class Menu extends BasicGameState {
                 break;
             case Input.KEY_3:
                 break;
+            case Input.KEY_4:
+                this.game.enterState( 4 );
+                break;
             default:
                 break;
         }
@@ -44,6 +47,8 @@ public class Menu extends BasicGameState {
         g.drawString( "1. Play Game", 100, 100 );
         g.drawString( "2. High Scores", 100, 120 );
         g.drawString( "3. Quit", 100, 140 );
+        g.drawString( "-- Development Tests --", 100, 160 );
+        g.drawString( "4. Enemy Fly Test", 100, 180 );
     }
 
     @Override
