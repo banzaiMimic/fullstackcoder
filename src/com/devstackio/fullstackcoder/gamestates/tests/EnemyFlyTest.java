@@ -1,4 +1,4 @@
-package com.devstackio.fullstackcoder.states.tests;
+package com.devstackio.fullstackcoder.gamestates.tests;
 
 import com.devstackio.fullstackcoder.entity.enemy.FlappyDragon;
 import java.util.ArrayList;

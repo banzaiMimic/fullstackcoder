@@ -3,11 +3,15 @@ package com.devstackio.fullstackcoder.entity;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
+/**
+ * singleton instance for loading and re-using all entity SpriteSheets
+ * @author devstackio
+ */
 public enum SpriteSheets {
     
     INSTANCE;
     
-    private final int ANIM_SPEED = 50;
+    private final int ANIM_SPEED = 120;
     private final SpriteSheet FLAPPY_DRAGON;
     
     SpriteSheets(){

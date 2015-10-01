@@ -1,4 +1,4 @@
-package com.devstackio.fullstackcoder.states;
+package com.devstackio.fullstackcoder.gamestates;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;

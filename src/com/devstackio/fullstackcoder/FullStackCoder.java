@@ -1,10 +1,12 @@
 package com.devstackio.fullstackcoder;
 
-import com.devstackio.fullstackcoder.states.Game;
-import com.devstackio.fullstackcoder.states.Menu;
-import com.devstackio.fullstackcoder.states.SplashScreen;
-import com.devstackio.fullstackcoder.states.tests.EnemyFlyTest;
+import com.devstackio.fullstackcoder.gamestates.Game;
+import com.devstackio.fullstackcoder.gamestates.Menu;
+import com.devstackio.fullstackcoder.gamestates.SplashScreen;
+import com.devstackio.fullstackcoder.gamestates.tests.CodeBlockTest;
+import com.devstackio.fullstackcoder.gamestates.tests.EnemyFlyTest;
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -15,6 +17,7 @@ public class FullStackCoder extends StateBasedGame {
     public static final int MAINMENU        = 1;
     public static final int GAME            = 3;
     public static final int ENEMY_FLY_TEST  = 4;
+    public static final int CODE_BLOCK_TEST = 5;
     
     public FullStackCoder( String appName ) {
         super( appName );
@@ -27,7 +30,9 @@ public class FullStackCoder extends StateBasedGame {
         addState( new Menu() );
         addState( new Game() );
         addState( new EnemyFlyTest() );
-        this.enterState( ENEMY_FLY_TEST );
+        addState( new CodeBlockTest() );
+        
+        this.enterState( CODE_BLOCK_TEST );
         
     }
 

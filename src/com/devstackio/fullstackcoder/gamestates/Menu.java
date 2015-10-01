@@ -1,4 +1,4 @@
-package com.devstackio.fullstackcoder.states;
+package com.devstackio.fullstackcoder.gamestates;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -49,6 +49,7 @@ public class Menu extends BasicGameState {
         g.drawString( "3. Quit", 100, 140 );
         g.drawString( "-- Development Tests --", 100, 160 );
         g.drawString( "4. Enemy Fly Test", 100, 180 );
+        g.drawString( "5. CodeBlock Test", 100, 200 );
     }
 
     @Override

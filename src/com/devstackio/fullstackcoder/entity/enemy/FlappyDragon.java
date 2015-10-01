@@ -1,14 +1,22 @@
 package com.devstackio.fullstackcoder.entity.enemy;
 
+import com.devstackio.fullstackcoder.Constants;
 import com.devstackio.fullstackcoder.entity.EntityState;
 import com.devstackio.fullstackcoder.entity.SpriteSheets;
 import com.devstackio.fullstackcoder.utils.MathUtils;
 import org.newdawn.slick.Animation;
 
+/**
+ * basic enemy entity that will spawn randomly between two points on the y axis and fly to the left
+ * until reaching an X_BOUNDS point where it will still animate but no longer move.
+ * this is for future addition of a 'base' that will be attacked by said entity.
+ * @author devstackio
+ */
 public class FlappyDragon extends Animation {
     
-    private static final float FLY_SPEED = 5;
-    private static final float X_BOUNDS = 50;
+    //@Todo move all common Entity properties and methods into an AbstractEntity class
+    private static final float X_BOUNDS = 200;
+    private float FLY_SPEED = 1;
     private float x;
     private float y;
     private boolean stationary = false;
@@ -16,7 +24,7 @@ public class FlappyDragon extends Animation {
     
     public FlappyDragon() {
         super(SpriteSheets.INSTANCE.getFlappyDragon(), SpriteSheets.INSTANCE.getAnimSpeed());
-        this.x = 500;
+        this.x = Constants.INSTANCE.getGAME_WIDTH();
         this.y = MathUtils.INSTANCE.getRandom( 200, 700 );
     }
     
