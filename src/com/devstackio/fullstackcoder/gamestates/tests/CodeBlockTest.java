@@ -2,13 +2,13 @@ package com.devstackio.fullstackcoder.gamestates.tests;
 
 import com.devstackio.fullstackcoder.code.CodeBlock;
 import com.devstackio.fullstackcoder.code.IoKeyListener;
+import com.devstackio.fullstackcoder.gamestates.SharedGameState;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class CodeBlockTest extends BasicGameState {
+public class CodeBlockTest extends SharedGameState {
     
     private CodeBlock codeBlock;
     private IoKeyListener ioKeyListener;

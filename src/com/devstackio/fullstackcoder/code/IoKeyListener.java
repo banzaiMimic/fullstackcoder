@@ -14,8 +14,8 @@ public enum IoKeyListener {
     
     public void keyPressed(int key, char c) {
         
-//        System.out.println("pressed int is : " + key);
-//        System.out.println("pressed char is : " + c );
+        System.out.println("pressed int is : " + key);
+        System.out.println("pressed char is : " + c );
 //        System.out.println("checking vs : " + this.activeLine.getFirstChar());
         if( this.activeLine.getLine().length() > 0 ) {
             //still has characters, test for char match

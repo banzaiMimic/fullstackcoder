@@ -1,5 +1,7 @@
 <b>ChangeLog</b><br /><br />
 
+- escape key will take user to Menu
+- added SharedGameState for all shared functionality between extended BasicGameStates [ each game state will now re-initialize upon entering state so that level and tests will fully restart ]
 - added basic functionality for type checking and CodeBlock completion
 - makes more sense to have one basic flying enemy class and use our SpriteSheets singleton to grab the spritesheet
 

@@ -2,15 +2,15 @@ package com.devstackio.fullstackcoder.gamestates.tests;
 
 import com.devstackio.fullstackcoder.entity.SpriteSheets;
 import com.devstackio.fullstackcoder.entity.enemy.FlyingEnemy;
+import com.devstackio.fullstackcoder.gamestates.SharedGameState;
 import java.util.ArrayList;
 import java.util.List;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class EnemyFlyTest extends BasicGameState {
+public class EnemyFlyTest extends SharedGameState {
 
     private static final int NUM_DRAGONS = 3;
     private List<FlyingEnemy> flyingArray;
@@ -22,7 +22,7 @@ public class EnemyFlyTest extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        
+
         this.flyingArray = new ArrayList();
         
         for (int i = 0; i < NUM_DRAGONS; i++) {
