@@ -32,7 +32,8 @@ public class FullStackCoder extends StateBasedGame {
         addState( new EnemyFlyTest() );
         addState( new CodeBlockTest() );
         
-        this.enterState( CODE_BLOCK_TEST );
+        this.enterState( ENEMY_FLY_TEST );
+        //this.enterState( CODE_BLOCK_TEST );
         
     }
 

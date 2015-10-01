@@ -8,11 +8,11 @@ public class CodeLine {
     
     private static final float X_BOUNDS = 200;
     private float speed;
-    private String line;
-    private Color color;
     private float x;
     private float y;
     private boolean stationary = false;
+    private String line;
+    private Color color;
     
     public CodeLine( String line, float y, float speed ) {
         this.speed = speed;
