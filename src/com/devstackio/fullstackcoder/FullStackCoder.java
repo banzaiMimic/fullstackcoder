@@ -32,8 +32,7 @@ public class FullStackCoder extends StateBasedGame {
         addState( new EnemyFlyTest() );
         addState( new CodeBlockTest() );
         
-        //this.enterState( ENEMY_FLY_TEST );
-        this.enterState( CODE_BLOCK_TEST );
+        this.enterState( MAINMENU );
         AudioControl audioController = new AudioControl();
         audioController.playMusic();
     }
