@@ -3,6 +3,7 @@
 [ no playable release finished yet just building the main blocks for the game ]
 
 <p>
+- adding <a href="http://opengameart.org/content/zombie-animations">ZOMBIES!!</a> for our EnemyFactory<br />
 - building an EnemyFactory to randomly generate enemies<br />
 - EnemyBlock added to match CodeBlocks<br />
 - EnemyMold interface added since we want to switch between different enemies easier...<br />

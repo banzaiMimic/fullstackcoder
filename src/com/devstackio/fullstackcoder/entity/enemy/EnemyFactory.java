@@ -1,12 +1,13 @@
 package com.devstackio.fullstackcoder.entity.enemy;
 
 import com.devstackio.fullstackcoder.entity.SpriteSheets;
+import com.devstackio.fullstackcoder.utils.EnemyUtil;
 import java.util.EnumMap;
 import java.util.Map;
 
 /**
  * enemy factory! 'nuff said
- * @author devstackio <@devstackioweb>
+ * @author devstackio @devstackioweb
  */
 public class EnemyFactory {
     
@@ -16,7 +17,13 @@ public class EnemyFactory {
         this.enemies = new EnumMap<>(EnemyType.class);
     }
     
-    public EnemyMold createEnemy( EnemyType type ) {
+    /**
+     * creates a random enemy from available EnemyType
+     * @return random EnemyMold
+     */
+    public EnemyMold createRandomEnemy( ) {
+        
+        EnemyType type = EnemyUtil.INSTANCE.getRandomEnemyType();
         
         EnemyMold enemy = this.enemies.get(type);
         
@@ -26,6 +33,7 @@ public class EnemyFactory {
                 enemy = new FlyingEnemy( SpriteSheets.INSTANCE.getFlappyDragon(), SpriteSheets.INSTANCE.getAnimSpeed() );
                 break;
             case WALKING:
+                enemy = new WalkingEnemy( SpriteSheets.INSTANCE.getZombieWalk(), SpriteSheets.INSTANCE.getAnimSpeed() );
                 break;
             
         }

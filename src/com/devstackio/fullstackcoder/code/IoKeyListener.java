@@ -1,5 +1,7 @@
 package com.devstackio.fullstackcoder.code;
 
+//@Todo might put dispatcher / observer in here to notify super SharedStateGame 
+//@Todo - Base Defender -- http://opengameart.org/content/samurai-animated
 public enum IoKeyListener {
     
     INSTANCE;

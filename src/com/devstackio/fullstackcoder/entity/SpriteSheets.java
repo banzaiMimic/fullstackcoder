@@ -12,25 +12,30 @@ public enum SpriteSheets {
     INSTANCE;
     
     private final int ANIM_SPEED = 120;
-    private final SpriteSheet FLAPPY_DRAGON;
+    private SpriteSheet FLAPPY_DRAGON;
+    private SpriteSheet ZOMBIE_WALK;
     
     SpriteSheets(){
         
-        FLAPPY_DRAGON = this.loadFlappyDragon();
-        
-    }
-    
-    private SpriteSheet loadFlappyDragon() {
-        
         try {
-            
-            return new SpriteSheet("data/spritesheets/enemy/flappy-dragon-140x101.png",140,101);
-            
-        } catch(SlickException e ) {
+            FLAPPY_DRAGON = this.loadFlappyDragon();
+            ZOMBIE_WALK = this.loadZombieWalk();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         
-        return null;
+    }
+    
+    private SpriteSheet loadFlappyDragon() throws SlickException {
+        return new SpriteSheet("data/spritesheets/enemy/flappy-dragon-140x101.png",140,101);
+    }
+    
+    private SpriteSheet loadZombieWalk() throws SlickException {
+        return new SpriteSheet("data/spritesheets/enemy/zombie/zombie-walk.png",200,312);
+    }
+    
+    public SpriteSheet getZombieWalk() {
+        return ZOMBIE_WALK;
     }
     
     public SpriteSheet getFlappyDragon() {

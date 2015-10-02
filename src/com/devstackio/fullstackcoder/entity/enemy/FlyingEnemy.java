@@ -24,7 +24,7 @@ public class FlyingEnemy extends Animation implements EnemyMold {
     public FlyingEnemy(SpriteSheet frames, int duration) {
         super(frames, duration);
         this.x = Constants.INSTANCE.getGAME_WIDTH();
-        this.y = MathUtils.INSTANCE.getRandom( 200, 700 );
+        this.y = MathUtils.INSTANCE.getRandom( 200, 450 );
     }
 
     @Override
