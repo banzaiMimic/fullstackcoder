@@ -7,7 +7,6 @@ import com.devstackio.fullstackcoder.gamestates.SplashScreen;
 import com.devstackio.fullstackcoder.gamestates.tests.CodeBlockTest;
 import com.devstackio.fullstackcoder.gamestates.tests.EnemyFlyTest;
 import com.devstackio.fullstackcoder.gamestates.tests.FullCodeBlockTest;
-import com.devstackio.fullstackcoder.utils.EnemyUtil;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
