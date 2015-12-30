@@ -65,4 +65,8 @@ public class CodeBlock {
         return this.activeLine < this.codeLines.size();
     }
     
+    public float getX() {
+        return this.getActiveCodeLine().getX();
+    }
+    
 }

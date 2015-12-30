@@ -50,4 +50,17 @@ public class EnemyBlock {
         }
     }
     
+    public void killEnemy() {
+        
+        System.out.println("EnemyBlock removing enemy...");
+        // remove enemy
+        if ( this.enemyCount > 0 ) {
+            this.getEnemies().remove(0);
+            this.enemyCount--;
+        }
+        
+        // @Todo - add that enemy's location into it's death animation clone so animation can continue
+        
+    }
+    
 }

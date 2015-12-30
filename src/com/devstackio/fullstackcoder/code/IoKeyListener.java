@@ -1,13 +1,22 @@
 package com.devstackio.fullstackcoder.code;
 
 //@Todo might put dispatcher / observer in here to notify super SharedStateGame 
+
+import com.devstackio.fullstackcoder.observer.ActionObserver;
+import com.devstackio.fullstackcoder.observer.ActionType;
+
 //@Todo - Base Defender -- http://opengameart.org/content/samurai-animated
 public enum IoKeyListener {
     
     INSTANCE;
     
+    private ActionObserver actionObserver;
     private CodeBlock codeBlock;
     private CodeLine activeLine;
+    
+    IoKeyListener() {
+        this.actionObserver = ActionObserver.INSTANCE;
+    }
     
     public void setCodeBlock( CodeBlock codeBlock ) {
         this.codeBlock = codeBlock;
@@ -30,10 +39,13 @@ public enum IoKeyListener {
             if ( !this.codeBlock.isComplete() ) {
                 
                 if ( key == 28 ) {
-                    System.out.println("SENDING HIT TO CODEBLOCK");
+                    //@Todo - move this to ActionObserver
+                    System.out.println("IoKeyListener : sending hit to codeBlock");
                     if( this.codeBlock.hit() ) {
+                        this.actionObserver.update( ActionType.LINE_COMPLETE );
                         this.activeLine = this.codeBlock.getActiveCodeLine();
                     } else {
+                        this.actionObserver.update( ActionType.BLOCK_COMPLETE );
                         System.out.println("CODE BLOCK COMPLETE!");
                     }
                 }

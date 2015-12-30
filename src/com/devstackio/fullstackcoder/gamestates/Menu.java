@@ -24,6 +24,8 @@ public class Menu extends BasicGameState {
     
     @Override
     public void keyReleased( int key, char c ) {
+        
+        //@todo these should be static final values
         switch( key ) {
             case Input.KEY_1:
                 this.game.enterState( 3 );
@@ -40,6 +42,10 @@ public class Menu extends BasicGameState {
                 break;
             case Input.KEY_6:
                 this.game.enterState( 6 );
+                break;
+            case Input.KEY_7:
+                this.game.enterState( 7 );
+                break;
             default:
                 break;
         }
@@ -56,6 +62,7 @@ public class Menu extends BasicGameState {
         g.drawString( "4. Enemy Fly Test", 100, 180 );
         g.drawString( "5. CodeBlock Test", 100, 200 );
         g.drawString( "6. Full CodeBlock Test [ with FlyingEnemies! ]", 100, 220 );
+        g.drawString( "7. Base Defender Test", 100, 240 );
     }
 
     @Override

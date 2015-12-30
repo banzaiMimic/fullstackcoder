@@ -1,8 +1,6 @@
 package com.devstackio.fullstackcoder.code;
 
 import com.devstackio.fullstackcoder.Constants;
-import java.awt.event.KeyEvent;
-import javax.swing.KeyStroke;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 
@@ -67,6 +65,10 @@ public class CodeLine {
         if( len > 0 ) {
             this.line = this.line.substring(1,len);
         }
+    }
+    
+    public float getX() {
+        return this.x;
     }
     
 }

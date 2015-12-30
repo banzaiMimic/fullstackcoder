@@ -1,6 +1,5 @@
 package com.devstackio.fullstackcoder.gamestates;
 
-import com.devstackio.fullstackcoder.audio.AudioControl;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.Music;
@@ -22,12 +21,7 @@ public abstract class SharedGameState extends BasicGameState {
     @Override
     public void enter(GameContainer gc, StateBasedGame sbg) throws SlickException {
         System.out.println("ENTERED GAME STATE : " + this.getID());
-        this.game = sbg;
-        this.gc = gc;
-        this.init(this.gc, this.game);
-        //AudioControl audioControl = new AudioControl();
-        //audioControl.playMusic();
-        
+        this.init( gc, sbg);
     }
     
     @Override

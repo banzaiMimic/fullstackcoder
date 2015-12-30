@@ -4,6 +4,7 @@ import com.devstackio.fullstackcoder.audio.AudioControl;
 import com.devstackio.fullstackcoder.gamestates.Game;
 import com.devstackio.fullstackcoder.gamestates.Menu;
 import com.devstackio.fullstackcoder.gamestates.SplashScreen;
+import com.devstackio.fullstackcoder.gamestates.tests.BaseDefenderTest;
 import com.devstackio.fullstackcoder.gamestates.tests.CodeBlockTest;
 import com.devstackio.fullstackcoder.gamestates.tests.EnemyFlyTest;
 import com.devstackio.fullstackcoder.gamestates.tests.FullCodeBlockTest;
@@ -20,6 +21,7 @@ public class FullStackCoder extends StateBasedGame {
     public static final int ENEMY_FLY_TEST  = 4;
     public static final int CODE_BLOCK_TEST = 5;
     public static final int FULL_BLOCK_TEST = 6;
+    public static final int BASE_DEFENDER_TEST = 7;
     
     public FullStackCoder( String appName ) {
         super( appName );
@@ -34,6 +36,7 @@ public class FullStackCoder extends StateBasedGame {
         addState( new EnemyFlyTest() );
         addState( new CodeBlockTest() );
         addState( new FullCodeBlockTest() );
+        addState( new BaseDefenderTest() );
         
         this.enterState( MAINMENU );
         AudioControl audioController = new AudioControl();
