@@ -24,6 +24,10 @@ public abstract class SharedGameState extends BasicGameState {
         this.init( gc, sbg);
     }
     
+    public void setStateBasedGame( StateBasedGame game ) {
+        this.game = game;
+    }
+    
     @Override
     public void keyReleased( int key, char c ) {
         try {

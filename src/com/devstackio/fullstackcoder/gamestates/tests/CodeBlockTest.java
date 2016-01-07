@@ -22,6 +22,7 @@ public class CodeBlockTest extends SharedGameState {
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         
         System.out.println("[[ CodeBlockTest initializing... ]]");
+        super.setStateBasedGame( sbg );
         this.ioKeyListener = IoKeyListener.INSTANCE;
         String[] lines = {"test","testtwo","testThree"};
         this.codeBlock = new CodeBlock( gc.getGraphics(), lines );

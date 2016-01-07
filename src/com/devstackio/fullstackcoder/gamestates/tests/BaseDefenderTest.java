@@ -21,6 +21,7 @@ public class BaseDefenderTest extends SharedGameState {
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         System.out.println("[[ BaseDefenderTest initializing... ]]");
+        super.setStateBasedGame( sbg );
         this.ioKeyListener = IoKeyListener.INSTANCE;
         this.blockGenerator = new BlockGenerator();
         // create CodeBlock with matching EnemyBlock - stored in blockGenerator

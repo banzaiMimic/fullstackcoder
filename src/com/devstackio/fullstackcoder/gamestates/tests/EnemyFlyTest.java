@@ -24,6 +24,7 @@ public class EnemyFlyTest extends SharedGameState {
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
 
         System.out.println("[[ EnemyFlyTest initializing... ]]");
+        super.setStateBasedGame( sbg );
         this.flyingArray = new ArrayList();
         
         for (int i = 0; i < NUM_DRAGONS; i++) {

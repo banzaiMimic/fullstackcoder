@@ -24,6 +24,7 @@ public class FullCodeBlockTest extends SharedGameState {
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         
         System.out.println("[[ FullCodeBlockTest initializing... ]]");
+        super.setStateBasedGame( sbg );
         this.actionObserver = ActionObserver.INSTANCE;
         this.ioKeyListener = IoKeyListener.INSTANCE;
         this.blockGenerator = new BlockGenerator();
