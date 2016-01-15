@@ -24,7 +24,9 @@ public class BlockGenerator {
     }
     
     public void ioDraw() {
-        this.getDefender().draw();
+        if ( this.getDefender() != null ) {
+            this.getDefender().draw();
+        }
         this.codeBlock.ioDraw();
         this.enemyBlock.ioDraw();
     }
@@ -32,7 +34,9 @@ public class BlockGenerator {
     public void ioUpdate( int delta ) {
         this.codeBlock.ioUpdate();
         this.enemyBlock.ioUpdate( delta );
-        this.getDefender().update( delta );
+        if ( this.getDefender() != null ) {
+            this.getDefender().update( delta );
+        }
     }
     
     public void generate( Graphics g ) {

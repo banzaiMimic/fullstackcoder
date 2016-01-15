@@ -63,7 +63,7 @@ public class Enemy extends MultiAnimation {
 //        System.out.println("   -- curFrame : " + this.getAnimations()[ this.currentAnimation ].getFrame() );
 //        System.out.println("   -- frameCount : " + (this.getAnimations()[ this.currentAnimation ].getFrameCount()-1) );
         
-        if( this.isDead() ) {
+        if( this.isDead() && !this.getRemove() ) {
             this.setCurrentAnimation(deathIndex);
             if ( this.getAnimations()[ this.currentAnimation ].getFrame() == this.getAnimations()[ this.currentAnimation ].getFrameCount()-1 ) {
                 System.out.println("---- dead ----");
