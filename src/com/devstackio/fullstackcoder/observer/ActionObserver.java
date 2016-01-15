@@ -1,6 +1,7 @@
 package com.devstackio.fullstackcoder.observer;
 
 import com.devstackio.fullstackcoder.code.CodeBlock;
+import com.devstackio.fullstackcoder.entity.defender.IDefender;
 import com.devstackio.fullstackcoder.entity.enemy.EnemyBlock;
 
 public enum ActionObserver {
@@ -9,12 +10,13 @@ public enum ActionObserver {
     
     private EnemyBlock enemyBlock;
     private CodeBlock codeBlock;
+    private IDefender defender;
     
     ActionObserver() {
         System.out.println("[[ initializing ActionObserver ]]");
     }
     
-    public void update( ActionType actionType ) {
+    public void sendAction( ActionType actionType ) {
         
         System.out.println("[[ ActionObserver action : " + actionType + " received...");
         
@@ -29,6 +31,9 @@ public enum ActionObserver {
                 break;
             case LEVEL_COMPLETE:
                 
+                break;
+            case DEFENDER_ATTACK:
+                this.defender.setCurrentAnimation( 0 );
                 break;
         }
         
@@ -49,6 +54,14 @@ public enum ActionObserver {
 
     public void setCodeBlock(CodeBlock codeBlock) {
         this.codeBlock = codeBlock;
+    }
+
+    public IDefender getDefender() {
+        return defender;
+    }
+
+    public void setDefender(IDefender defender) {
+        this.defender = defender;
     }
     
 }

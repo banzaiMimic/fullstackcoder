@@ -14,15 +14,15 @@ import org.newdawn.slick.SpriteSheet;
  */
 public class FlyingEnemy extends Animation implements EnemyMold {
     
-    protected static final float X_BOUNDS = 200;
+    protected static final float X_BOUNDS = Constants.INSTANCE.getENEMY_X_BOUNDS();
     protected float speed = .5f;
     protected float x;
     protected float y;
     protected boolean stationary = false;
     protected EntityState state = EntityState.ALIVE;
 
-    public FlyingEnemy(SpriteSheet frames, int duration) {
-        super(frames, duration);
+    public FlyingEnemy(SpriteSheet spritesheet, int duration) {
+        super(spritesheet, duration);
         this.x = Constants.INSTANCE.getGAME_WIDTH();
         this.y = MathUtils.INSTANCE.getRandom( 200, 450 );
     }

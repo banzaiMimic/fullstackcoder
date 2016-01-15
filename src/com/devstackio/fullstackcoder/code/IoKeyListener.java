@@ -42,10 +42,10 @@ public enum IoKeyListener {
                     //@Todo - move this to ActionObserver
                     System.out.println("IoKeyListener : sending hit to codeBlock");
                     if( this.codeBlock.hit() ) {
-                        this.actionObserver.update( ActionType.LINE_COMPLETE );
+                        this.actionObserver.sendAction( ActionType.LINE_COMPLETE );
                         this.activeLine = this.codeBlock.getActiveCodeLine();
                     } else {
-                        this.actionObserver.update( ActionType.BLOCK_COMPLETE );
+                        this.actionObserver.sendAction( ActionType.BLOCK_COMPLETE );
                         System.out.println("CODE BLOCK COMPLETE!");
                     }
                 }
