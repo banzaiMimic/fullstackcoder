@@ -9,8 +9,10 @@ public class Enemy extends MultiAnimation {
     
     private float x;
     private float y;
-    protected boolean stationary = false;
+    private boolean stationary = false;
+    private boolean hasSentAttack = false;
     private int deathIndex;
+    private int attackIndex;
     private boolean dead = false;
     private boolean remove = false;
 
@@ -28,6 +30,10 @@ public class Enemy extends MultiAnimation {
         this.y = enemy.y;
     }
     
+    public void playAttack() {
+        this.currentAnimation = this.getAttackIndex();
+    }
+    
     /**
      * override - set currentAnimation to death animation and remove after
      */
@@ -37,11 +43,12 @@ public class Enemy extends MultiAnimation {
     
     @Override
     public void update(long delta) {
-        if (!this.stationary) {
+        if (!this.isStationary()) {
             if (this.canMove()) {
                 this.setX(this.getX() - speed);
             } else {
-                this.stationary = true;
+                this.setStationary(true);
+                this.playAttack();
             }
         }
         super.update(delta);
@@ -50,11 +57,11 @@ public class Enemy extends MultiAnimation {
     @Override
     public void draw() {
    
-        System.out.println("-- Enemy : animations length : " + this.getAnimations().length );
-        System.out.println("   -- currentAnimation : " + this.currentAnimation );
-        System.out.println("   -- deathIndex : " + this.getDeathIndex() );
-        System.out.println("   -- curFrame : " + this.getAnimations()[ this.currentAnimation ].getFrame() );
-        System.out.println("   -- frameCount : " + (this.getAnimations()[ this.currentAnimation ].getFrameCount()-1) );
+//        System.out.println("-- Enemy : animations length : " + this.getAnimations().length );
+//        System.out.println("   -- currentAnimation : " + this.currentAnimation );
+//        System.out.println("   -- deathIndex : " + this.getDeathIndex() );
+//        System.out.println("   -- curFrame : " + this.getAnimations()[ this.currentAnimation ].getFrame() );
+//        System.out.println("   -- frameCount : " + (this.getAnimations()[ this.currentAnimation ].getFrameCount()-1) );
         
         if( this.isDead() ) {
             this.setCurrentAnimation(deathIndex);
@@ -112,6 +119,30 @@ public class Enemy extends MultiAnimation {
 
     public void setY(float y) {
         this.y = y;
+    }
+
+    public boolean isStationary() {
+        return stationary;
+    }
+
+    public void setStationary(boolean stationary) {
+        this.stationary = stationary;
+    }
+
+    public boolean hasSentAttack() {
+        return hasSentAttack;
+    }
+
+    public void setHasSentAttack(boolean hasSentAttack) {
+        this.hasSentAttack = hasSentAttack;
+    }
+
+    public int getAttackIndex() {
+        return attackIndex;
+    }
+
+    public void setAttackIndex(int attackIndex) {
+        this.attackIndex = attackIndex;
     }
     
 }

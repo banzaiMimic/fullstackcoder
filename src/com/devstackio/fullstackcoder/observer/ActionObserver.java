@@ -24,16 +24,21 @@ public enum ActionObserver {
             case LINE_COMPLETE:
                 System.out.println( "  -- sending killEnemy to enemyBlock" );
                 this.enemyBlock.killEnemy();
+                this.defender.removeDps();
                 break;
             case BLOCK_COMPLETE:
                 System.out.println("  -- sending killEnemy to enemyBlock" );
                 this.enemyBlock.killEnemy();
+                
                 break;
             case LEVEL_COMPLETE:
                 
                 break;
             case DEFENDER_ATTACK:
                 this.defender.setCurrentAnimation( 0 );
+                break;
+            case DEFENDER_DAMAGED:
+                this.defender.addDps();
                 break;
         }
         

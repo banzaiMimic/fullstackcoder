@@ -45,6 +45,12 @@ public class EnemyBlock {
         
         for ( Enemy enemy : this.enemies ) {
             
+            if ( enemy.isStationary() && !enemy.hasSentAttack() ) {
+                
+                this.actionObserver.sendAction( ActionType.DEFENDER_DAMAGED );
+                enemy.setHasSentAttack( true );
+            }
+            
             enemy.draw();
             
         }

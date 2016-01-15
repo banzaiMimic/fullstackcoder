@@ -23,9 +23,9 @@ public class SamuraiDefender extends AbstractDefender implements IDefender {
     @Override
     public void draw() {
         
-        System.out.println("[[ SamuraiDefender : animations length : " + this.getAnimations().length );
-        System.out.println("  -- currentAnimation : " + this.currentAnimation );
-        this.getAnimations()[ this.currentAnimation ].draw( x, y );
+//        System.out.println("[[ SamuraiDefender : animations length : " + this.getAnimations().length );
+//        System.out.println("  -- currentAnimation : " + this.currentAnimation );
+        this.getAnimations()[ this.currentAnimation ].draw( this.getX(), this.getY() );
         
         if( 0 == this.currentAnimation ) {   // only want to run through 1 attack animation then return to running...
 

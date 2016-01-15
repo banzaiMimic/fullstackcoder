@@ -10,7 +10,7 @@ public class EnemyDragon extends Enemy {
         this.currentAnimation = 1; // flying
         this.setY( MathUtils.INSTANCE.getRandom( 200, 450 ) );
         this.setDeathIndex( 0 );
-        
+        this.setAttackIndex( 1 );
     }
     
     @Override

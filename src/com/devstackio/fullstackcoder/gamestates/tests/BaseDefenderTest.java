@@ -7,6 +7,7 @@ import com.devstackio.fullstackcoder.entity.defender.SamuraiDefender;
 import com.devstackio.fullstackcoder.gamestates.SharedGameState;
 import com.devstackio.fullstackcoder.observer.ActionObserver;
 import com.devstackio.fullstackcoder.observer.ActionType;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -36,7 +37,6 @@ public class BaseDefenderTest extends SharedGameState {
         this.blockGenerator = new BlockGenerator();
         this.blockGenerator.setDefender( this.defender );
         
-        
         // create CodeBlock with matching EnemyBlock - stored in blockGenerator
         this.blockGenerator.generate( gc.getGraphics() );
         this.ioKeyListener.setCodeBlock( this.blockGenerator.getCodeBlock() );
@@ -51,7 +51,9 @@ public class BaseDefenderTest extends SharedGameState {
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
         
+        grphcs.setColor(Color.white);
         this.blockGenerator.ioDraw();
+        this.blockGenerator.getDefender().drawHealth(grphcs);
         
     }
 
@@ -69,13 +71,6 @@ public class BaseDefenderTest extends SharedGameState {
     
 }
 
-// we need key listener here to dispatch an 'attack' event
-// attack event for test should fire on space bar.
-// attack event should trigger attack animation on our defender
-// this should happen all at abstract level for shared among defenders.
-
-
-// we need a base health display
 // we need a damage update when enemy is touching our base
 // we need a ui update when base is being damaged
 // we need a game over screen 
