@@ -1,6 +1,5 @@
 package com.devstackio.fullstackcoder.entity.enemy;
 
-import com.devstackio.fullstackcoder.entity.SpriteSheets;
 import com.devstackio.fullstackcoder.utils.EnemyUtil;
 import java.util.EnumMap;
 import java.util.Map;
@@ -9,11 +8,13 @@ import java.util.Map;
  * enemy factory! 'nuff said
  * @author devstackio @devstackioweb
  */
-public class EnemyFactory {
+public enum EnemyFactory {
     
-    private final Map<EnemyType, EnemyMold> enemies;
+    INSTANCE;
     
-    public EnemyFactory() {
+    private final Map<EnemyType, Enemy> enemies;
+    
+    EnemyFactory() {
         this.enemies = new EnumMap<>(EnemyType.class);
     }
     
@@ -21,25 +22,29 @@ public class EnemyFactory {
      * creates a random enemy from available EnemyType
      * @return random EnemyMold
      */
-    public EnemyMold createRandomEnemy( ) {
+    public Enemy createRandomEnemy( ) {
         
         EnemyType type = EnemyUtil.INSTANCE.getRandomEnemyType();
         
-        EnemyMold enemy = this.enemies.get(type);
+        Enemy enemy = this.enemies.get(type);
         
         switch( type ) {
             
             case FLYING:
-                enemy = new FlyingEnemy( SpriteSheets.INSTANCE.getFlappyDragon(), SpriteSheets.INSTANCE.getAnimSpeed() );
+                enemy = new EnemyDragon();
                 break;
             case WALKING:
-                enemy = new WalkingEnemy( SpriteSheets.INSTANCE.getZombieWalk(), SpriteSheets.INSTANCE.getAnimSpeed() );
+                enemy = new EnemyZombie();
                 break;
             
         }
         
         return enemy;
         
+    }
+    
+    public Enemy createFlyingEnemy() {
+        return new EnemyDragon();
     }
     
 }

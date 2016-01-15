@@ -8,6 +8,7 @@ import com.devstackio.fullstackcoder.gamestates.tests.BaseDefenderTest;
 import com.devstackio.fullstackcoder.gamestates.tests.CodeBlockTest;
 import com.devstackio.fullstackcoder.gamestates.tests.EnemyFlyTest;
 import com.devstackio.fullstackcoder.gamestates.tests.FullCodeBlockTest;
+import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
@@ -29,6 +30,9 @@ public class FullStackCoder extends StateBasedGame {
     
     @Override
     public void initStatesList(GameContainer gc) throws SlickException {
+        
+        System.out.println("------max texture -------");
+        System.out.println(GL11.glGetInteger(GL11.GL_MAX_TEXTURE_SIZE));
         
         addState( new SplashScreen() );
         addState( new Menu() );

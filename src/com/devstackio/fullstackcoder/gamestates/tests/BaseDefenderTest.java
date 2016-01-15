@@ -32,10 +32,10 @@ public class BaseDefenderTest extends SharedGameState {
         
         this.actionObserver = ActionObserver.INSTANCE;
         this.ioKeyListener = IoKeyListener.INSTANCE;
-        this.blockGenerator = new BlockGenerator();
-        
         this.defender = new SamuraiDefender();
-        this.defender.setCurrentAnimation( 3 );
+        this.blockGenerator = new BlockGenerator();
+        this.blockGenerator.setDefender( this.defender );
+        
         
         // create CodeBlock with matching EnemyBlock - stored in blockGenerator
         this.blockGenerator.generate( gc.getGraphics() );
@@ -52,7 +52,6 @@ public class BaseDefenderTest extends SharedGameState {
     public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
         
         this.blockGenerator.ioDraw();
-        this.defender.draw();
         
     }
 
@@ -60,20 +59,12 @@ public class BaseDefenderTest extends SharedGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         
         this.blockGenerator.ioUpdate( i );
-        this.defender.update( i );
         
     }
     
     @Override
     public void keyPressed( int key, char c ) {
         this.ioKeyListener.keyPressed(key, c);
-        
-        // @remove - hardcoding for test quicker
-        if ( key == 57 ) { //space bar
-            
-            this.actionObserver.sendAction( ActionType.DEFENDER_ATTACK );
-            
-        }
     }
     
 }

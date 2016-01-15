@@ -2,12 +2,10 @@ package com.devstackio.fullstackcoder.entity.defender;
 
 import com.devstackio.fullstackcoder.Constants;
 import com.devstackio.fullstackcoder.entity.MultiAnimation;
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SpriteSheet;
 
 public class AbstractDefender extends MultiAnimation {
     
-    protected static Graphics GRAPHIX;
     protected float x;
     protected float y;
     

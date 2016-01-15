@@ -1,5 +1,7 @@
 package com.devstackio.fullstackcoder.entity.enemy;
 
+import com.devstackio.fullstackcoder.observer.ActionObserver;
+import com.devstackio.fullstackcoder.observer.ActionType;
 import java.util.LinkedList;
 import java.util.List;
 import org.newdawn.slick.Graphics;
@@ -13,18 +15,19 @@ public class EnemyBlock {
     private static Graphics GRAPHIX;
     private EnemyFactory enemyFactory;
     private float speed=.5f;
-    private List<EnemyMold> enemies;
+    private List<Enemy> enemies;
     private int enemyCount;
+    private final ActionObserver actionObserver = ActionObserver.INSTANCE;
     
     public EnemyBlock( Graphics g, int num ) {
         GRAPHIX = g;
         this.enemyCount = num;
-        this.enemyFactory = new EnemyFactory();
+        this.enemyFactory = EnemyFactory.INSTANCE;
         this.enemies = this.createEnemies();
     }
     
-    private List<EnemyMold> createEnemies() {
-        List<EnemyMold> returnobj = new LinkedList();
+    private List<Enemy> createEnemies() {
+        List<Enemy> returnobj = new LinkedList();
         
         for (int i = 0; i < this.enemyCount; i++) {
             
@@ -34,19 +37,24 @@ public class EnemyBlock {
         return returnobj;
     }
 
-    public List<EnemyMold> getEnemies() {
+    public List<Enemy> getEnemies() {
         return enemies;
     }
     
     public void ioDraw() {
-        for ( EnemyMold enemy : this.enemies ) {
+        
+        for ( Enemy enemy : this.enemies ) {
+            
             enemy.draw();
+            
         }
     }
     
     public void ioUpdate( int delta ) {
-        for ( EnemyMold enemy : this.enemies ) {
+        for ( Enemy enemy : this.enemies ) {
+            
             enemy.update( delta );
+              
         }
     }
     
@@ -54,9 +62,12 @@ public class EnemyBlock {
         
         System.out.println("EnemyBlock removing enemy...");
         // remove enemy
-        if ( this.enemyCount > 0 ) {
-            this.getEnemies().remove(0);
-            this.enemyCount--;
+        for ( Enemy enemy : this.getEnemies() ) {
+            if ( !enemy.isDead() ) {
+                this.actionObserver.sendAction( ActionType.DEFENDER_ATTACK );
+                enemy.setDead(true);
+                break;
+            }
         }
         
         // @Todo - add that enemy's location into it's death animation clone so animation can continue

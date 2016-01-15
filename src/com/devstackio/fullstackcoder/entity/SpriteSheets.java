@@ -13,10 +13,10 @@ public enum SpriteSheets {
     INSTANCE;
     
     private final int ANIM_SPEED = 120;
-    private final int DEFENDER_ANIM_SPEED = 70;
-    private SpriteSheet FLAPPY_DRAGON;
-    private SpriteSheet ZOMBIE_WALK;
-    private SpriteSheet DEFENDER_SAMURAI_RUN;
+    private final int DEFENDER_ANIM_SPEED = 60;
+    private SpriteSheet ENEMY_DRAGON;
+    private SpriteSheet ENEMY_ZOMBIE;
+    private SpriteSheet DEFENDER_SAMURAI;
     
     SpriteSheets(){
         this.init();
@@ -25,9 +25,9 @@ public enum SpriteSheets {
     private void init() {
         try {
             
-            FLAPPY_DRAGON = this.loadFlappyDragon();
-            ZOMBIE_WALK = this.loadZombieWalk();
-            DEFENDER_SAMURAI_RUN = this.loadDefenderSamuraiRun();
+            ENEMY_DRAGON = this.loadEnemyDragon();
+            ENEMY_ZOMBIE = this.loadEnemyZombie();
+            DEFENDER_SAMURAI = this.loadDefenderSamuraiRun();
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -38,32 +38,32 @@ public enum SpriteSheets {
         return new SpriteSheet("data/spritesheets/defender/samurai/samurai-120x87-32.png",120,87);
     }
     
-    private SpriteSheet loadFlappyDragon() throws SlickException {
-        return new SpriteSheet("data/spritesheets/enemy/flappy-dragon-140x101.png",140,101);
+    private SpriteSheet loadEnemyDragon() throws SlickException {
+        return new SpriteSheet("data/spritesheets/enemy/dragon/dragon-140x220.png",140,220);
     }
     
-    private SpriteSheet loadZombieWalk() throws SlickException {
-        return new SpriteSheet("data/spritesheets/enemy/zombie/zombie-walk.png",200,312);
+    private SpriteSheet loadEnemyZombie() throws SlickException {
+        return new SpriteSheet("data/spritesheets/enemy/zombie/zombie-288x210.png",288,210);
     }
     
-    public SpriteSheet getZombieWalk() {
-        return ZOMBIE_WALK;
+    public SpriteSheet getEnemyZombie() {
+        return ENEMY_ZOMBIE;
     }
     
-    public SpriteSheet getFlappyDragon() {
-        return FLAPPY_DRAGON;
+    public SpriteSheet getEnemyDragon() {
+        return ENEMY_DRAGON;
     }
     
     public int getAnimSpeed() {
         return ANIM_SPEED;
     }
 
-    public SpriteSheet getDEFENDER_SAMURAI_RUN() {
-        return DEFENDER_SAMURAI_RUN;
+    public SpriteSheet getDEFENDER_SAMURAI() {
+        return DEFENDER_SAMURAI;
     }
 
-    public void setDEFENDER_SAMURAI_RUN(SpriteSheet DEFENDER_SAMURAI_RUN) {
-        this.DEFENDER_SAMURAI_RUN = DEFENDER_SAMURAI_RUN;
+    public void setDEFENDER_SAMURAI(SpriteSheet DEFENDER_SAMURAI_RUN) {
+        this.DEFENDER_SAMURAI = DEFENDER_SAMURAI_RUN;
     }
 
     public int getDEFENDER_ANIM_SPEED() {

@@ -4,13 +4,18 @@ public enum Constants {
     
     INSTANCE;
     
-    private static final String GAME_TITLE = "FullStackCoder";
-    private static final int GAME_WIDTH = 1024;
-    private static final int GAME_HEIGHT = 768;
-    private static final int TARGET_FRAME_RATE = 60;
-    private static final int ENEMY_X_BOUNDS = 200;
-    private static final int DEFENDER_Y = 686;
-    private static final int DEFENDER_X = 125;                    
+    private final String GAME_TITLE = "FullStackCoder";
+    private final int GAME_WIDTH = 1024;
+    private final int GAME_HEIGHT = 768;
+    private final int TARGET_FRAME_RATE = 60;
+    private final int ENEMY_X_BOUNDS = 200;
+    private final int DEFENDER_Y = 686;
+    private final int DEFENDER_X = 125;     
+    private final float BASE_ENEMY_SPEED = .5f;
+
+    public float getBASE_ENEMY_SPEED() {
+        return BASE_ENEMY_SPEED;
+    }
 
     public int getDEFENDER_Y() {
         return DEFENDER_Y;
