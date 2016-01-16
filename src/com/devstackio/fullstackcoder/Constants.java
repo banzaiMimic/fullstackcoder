@@ -5,13 +5,17 @@ public enum Constants {
     INSTANCE;
     
     private final String GAME_TITLE = "FullStackCoder";
+    
+    // less is slower
+    private final float BASE_ENEMY_SPEED = .4f;
+    private final float BASE_CODE_SPEED = .4f;
+    
     private final int GAME_WIDTH = 1024;
     private final int GAME_HEIGHT = 768;
     private final int TARGET_FRAME_RATE = 60;
     private final int ENEMY_X_BOUNDS = 200;
     private final int DEFENDER_Y = 676;
     private final int DEFENDER_X = 125;     
-    private final float BASE_ENEMY_SPEED = 1.9f;
     private final float DPS_AMOUNT = 10;
 
     public float getBASE_ENEMY_SPEED() {
@@ -48,6 +52,10 @@ public enum Constants {
 
     public float getDPS_AMOUNT() {
         return DPS_AMOUNT;
+    }
+
+    public float getBASE_CODE_SPEED() {
+        return BASE_CODE_SPEED;
     }
     
 }

@@ -6,7 +6,7 @@ import com.devstackio.fullstackcoder.entity.defender.IDefender;
 import com.devstackio.fullstackcoder.entity.defender.SamuraiDefender;
 import com.devstackio.fullstackcoder.gamestates.SharedGameState;
 import com.devstackio.fullstackcoder.observer.ActionObserver;
-import com.devstackio.fullstackcoder.observer.ActionType;
+import com.devstackio.fullstackcoder.utils.LineGenerator;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -38,10 +38,13 @@ public class BaseDefenderTest extends SharedGameState {
         this.blockGenerator.setDefender( this.defender );
         
         // create CodeBlock with matching EnemyBlock - stored in blockGenerator
-        this.blockGenerator.generate( gc.getGraphics() );
+        this.blockGenerator.generate( gc.getGraphics(), LineGenerator.INSTANCE.getStaticLines());
         this.ioKeyListener.setCodeBlock( this.blockGenerator.getCodeBlock() );
         System.out.println("trying to set enemyBlock from fullCodeBlockTest to actionObserver");
         
+        this.actionObserver.setIoKeyListener( ioKeyListener );
+        this.actionObserver.setBlockGenerator( this.blockGenerator) ;
+        this.actionObserver.setGraphics( gc.getGraphics() );
         this.actionObserver.setEnemyBlock( this.blockGenerator.getEnemyBlock() );
         this.actionObserver.setDefender( this.defender );
         

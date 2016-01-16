@@ -1,5 +1,6 @@
 package com.devstackio.fullstackcoder.code;
 
+import com.devstackio.fullstackcoder.Constants;
 import java.util.LinkedList;
 import java.util.List;
 import org.newdawn.slick.Graphics;
@@ -7,14 +8,12 @@ import org.newdawn.slick.Graphics;
 public class CodeBlock {
     
     private static final float LINE_SPACING = 20;
-    private float speed=.5f;
     private List<CodeLine> codeLines;
     private static Graphics GRAPHIX;
     private int activeLine=0;
     
     public CodeBlock( Graphics g, String[] lines ) {
         this.codeLines = this.createCodeLines( lines );
-        this.speed = 1;
         GRAPHIX = g;
     }
     
@@ -30,7 +29,7 @@ public class CodeBlock {
         List<CodeLine> returnobj = new LinkedList();
         int counter=0;
         for ( String line : lines ) {
-            CodeLine codeLine = new CodeLine( line, (counter*LINE_SPACING), this.speed );
+            CodeLine codeLine = new CodeLine( line, (counter*LINE_SPACING), Constants.INSTANCE.getBASE_CODE_SPEED() );
             returnobj.add( codeLine );
             counter++;
         }

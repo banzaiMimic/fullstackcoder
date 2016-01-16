@@ -8,7 +8,8 @@ public class AudioControl {
     
     public AudioControl() {
         try {
-            this.music = new Music("data/music/03_Chibi_Ninja.ogg");
+            //this.music = new Music("data/music/03_Chibi_Ninja.ogg");
+            this.music = new Music("data/music/Rooftops_PSG.ogg");
         } catch( Exception e ) {
             e.printStackTrace();
         }

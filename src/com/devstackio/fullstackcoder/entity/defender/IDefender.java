@@ -10,5 +10,6 @@ public interface IDefender {
     void setCurrentAnimation( int animationIndex );
     void addDps();
     void removeDps();
+    void clearDps();
     
 }

@@ -31,6 +31,10 @@ public class AbstractDefender extends MultiAnimation {
         this.maxHealth = this.health;
     }
     
+    public void clearDps() {
+        this.dpsCount = 0;
+    }
+    
     public void drawHealth( Graphics g ) {
         g.setColor( Color.red );
         float healthGAWidth = ((float) getHealth() / (float) getMaxHealth()) * (float) getHealthWidth();

@@ -2,6 +2,7 @@ package com.devstackio.fullstackcoder.code;
 
 import com.devstackio.fullstackcoder.entity.defender.IDefender;
 import com.devstackio.fullstackcoder.entity.enemy.EnemyBlock;
+import com.devstackio.fullstackcoder.observer.ActionObserver;
 import org.newdawn.slick.Graphics;
 
 /**
@@ -13,15 +14,7 @@ public class BlockGenerator {
     
     private CodeBlock codeBlock;
     private EnemyBlock enemyBlock;
-    private String[] lines;
     private IDefender defender;
-    
-    public BlockGenerator() {
-        
-        String[] hardCodedLinesForNow = {"hello","this is blockGenerator!","cookin somethin..."};
-        this.lines = hardCodedLinesForNow;
-        
-    }
     
     public void ioDraw() {
         if ( this.getDefender() != null ) {
@@ -39,10 +32,12 @@ public class BlockGenerator {
         }
     }
     
-    public void generate( Graphics g ) {
+    public void generate( Graphics g, String[] newLines ) {
         
-        this.codeBlock = new CodeBlock( g, this.lines);
-        this.enemyBlock = new EnemyBlock( g, this.lines.length );
+        this.codeBlock = new CodeBlock( g, newLines );
+        this.enemyBlock = new EnemyBlock( g, newLines.length );
+        
+        ActionObserver.INSTANCE.setEnemyBlock( this.getEnemyBlock() );
         
     }
     

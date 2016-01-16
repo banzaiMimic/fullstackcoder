@@ -76,8 +76,6 @@ public class EnemyBlock {
             }
         }
         
-        // @Todo - add that enemy's location into it's death animation clone so animation can continue
-        
     }
     
 }

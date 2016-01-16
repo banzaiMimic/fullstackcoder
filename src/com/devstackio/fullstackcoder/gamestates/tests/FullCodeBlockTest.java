@@ -4,6 +4,7 @@ import com.devstackio.fullstackcoder.code.BlockGenerator;
 import com.devstackio.fullstackcoder.code.IoKeyListener;
 import com.devstackio.fullstackcoder.gamestates.SharedGameState;
 import com.devstackio.fullstackcoder.observer.ActionObserver;
+import com.devstackio.fullstackcoder.utils.LineGenerator;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -29,7 +30,7 @@ public class FullCodeBlockTest extends SharedGameState {
         this.ioKeyListener = IoKeyListener.INSTANCE;
         this.blockGenerator = new BlockGenerator();
         // create CodeBlock with matching EnemyBlock - stored in blockGenerator
-        this.blockGenerator.generate( gc.getGraphics() );
+        this.blockGenerator.generate( gc.getGraphics(), LineGenerator.INSTANCE.getStaticLines() );
         this.ioKeyListener.setCodeBlock( this.blockGenerator.getCodeBlock() );
         System.out.println("trying to set enemyBlock from fullCodeBlockTest to actionObserver");
         this.actionObserver.setEnemyBlock( this.blockGenerator.getEnemyBlock() );
