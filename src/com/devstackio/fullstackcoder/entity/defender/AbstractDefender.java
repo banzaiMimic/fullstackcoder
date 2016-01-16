@@ -5,9 +5,11 @@ import com.devstackio.fullstackcoder.entity.MultiAnimation;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SpriteSheet;
+import org.newdawn.slick.state.StateBasedGame;
 
 public class AbstractDefender extends MultiAnimation {
     
+    private StateBasedGame game;
     private float x;
     private float y;
     private float health;
@@ -60,6 +62,10 @@ public class AbstractDefender extends MultiAnimation {
             System.out.println("--updating health ---------------------------");
             this.setHealth( this.getHealth() - Constants.INSTANCE.getDPS_AMOUNT() );
             System.out.println("-- new health : " + this.getHealth() );
+        }
+        
+        if ( this.getHealth() <= 0 ) {
+            this.game.enterState( 1 ); // go back to menu for now...
         }
     }
     
@@ -151,6 +157,14 @@ public class AbstractDefender extends MultiAnimation {
 
     public void setPastTime(int pastTime) {
         this.pastTime = pastTime;
+    }
+
+    public StateBasedGame getGame() {
+        return game;
+    }
+
+    public void setGame(StateBasedGame game) {
+        this.game = game;
     }
     
 }

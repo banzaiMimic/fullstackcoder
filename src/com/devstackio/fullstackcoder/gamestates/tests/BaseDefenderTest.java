@@ -34,6 +34,7 @@ public class BaseDefenderTest extends SharedGameState {
         this.actionObserver = ActionObserver.INSTANCE;
         this.ioKeyListener = IoKeyListener.INSTANCE;
         this.defender = new SamuraiDefender();
+        this.defender.setGame( sbg );
         this.blockGenerator = new BlockGenerator();
         this.blockGenerator.setDefender( this.defender );
         
