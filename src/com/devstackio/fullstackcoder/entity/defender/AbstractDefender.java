@@ -10,6 +10,9 @@ import org.newdawn.slick.state.StateBasedGame;
 public class AbstractDefender extends MultiAnimation {
     
     private StateBasedGame game;
+    private float jumpStrength;
+    private float gravity;
+    private float yVelocity;
     private float x;
     private float y;
     private float health;
@@ -20,9 +23,12 @@ public class AbstractDefender extends MultiAnimation {
     private float maxHealth;
     private int dpsCount=0;
     private int pastTime=0;
+    private boolean isJumping=false;
     
     public AbstractDefender( int numanimations, SpriteSheet spritesheet ) {
         super( numanimations, spritesheet );
+        this.gravity = .1f;
+        this.yVelocity = 0;
         this.x = Constants.INSTANCE.getDEFENDER_X();
         this.y = Constants.INSTANCE.getDEFENDER_Y();
         this.health = this.spriteSheet.getSprite(0, 0).getWidth();
@@ -31,6 +37,14 @@ public class AbstractDefender extends MultiAnimation {
         this.healthX = this.x;
         this.healthY = this.y + this.spriteSheet.getHeight();
         this.maxHealth = this.health;
+        this.jumpStrength = -2f;
+    }
+    
+    public void onPlayerJump() {
+        if ( !this.isJumping ) {
+            this.yVelocity = this.jumpStrength;
+            this.isJumping = true;
+        }
     }
     
     public void clearDps() {
@@ -53,6 +67,15 @@ public class AbstractDefender extends MultiAnimation {
         if( this.pastTime > 150 ) {
             this.updateHealth();
             this.pastTime = 0;
+        }
+        
+        this.y += this.yVelocity * delta;
+        this.yVelocity += this.gravity;
+        
+        if ( this.y >= Constants.INSTANCE.getDEFENDER_Y() ) {
+            this.yVelocity -= this.gravity;
+            this.yVelocity = 0;
+            this.isJumping = false;
         }
         
     }
@@ -165,6 +188,22 @@ public class AbstractDefender extends MultiAnimation {
 
     public void setGame(StateBasedGame game) {
         this.game = game;
+    }
+
+    public float getGravity() {
+        return gravity;
+    }
+
+    public void setGravity(float gravity) {
+        this.gravity = gravity;
+    }
+
+    public float getyVelocity() {
+        return yVelocity;
+    }
+
+    public void setyVelocity(float yVelocity) {
+        this.yVelocity = yVelocity;
     }
     
 }

@@ -27,17 +27,25 @@ public enum IoKeyListener {
         
         System.out.println("pressed int is : " + key);
         System.out.println("pressed char is : " + c );
+        System.out.println("is complete : " + this.codeBlock.isComplete() );
 //        System.out.println("checking vs : " + this.activeLine.getFirstChar());
         if( this.activeLine.getLine().length() > 0 ) {
             //still has characters, test for char match
             if( c == this.activeLine.getFirstChar() ) {
                 this.activeLine.hit();
             }
+
+            if (key == 57) {
+
+                this.actionObserver.sendAction(ActionType.PLAYER_JUMP);
+
+            }
+            
         } else {
             //line is empty, test for 'return' int if codeBlock still has lines...
             
             if ( !this.codeBlock.isComplete() ) {
-                
+             
                 if ( key == 28 ) {
                     //@Todo - move this to ActionObserver
                     System.out.println("IoKeyListener : sending hit to codeBlock");
@@ -50,7 +58,7 @@ public enum IoKeyListener {
                     }
                 }
                 
-            } 
+            }
 
         }
         

@@ -13,5 +13,6 @@ public interface IDefender {
     void removeDps();
     void clearDps();
     void setGame(StateBasedGame game);
+    void onPlayerJump();
     
 }

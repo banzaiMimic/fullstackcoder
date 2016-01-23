@@ -51,6 +51,12 @@ public enum ActionObserver {
             case DEFENDER_DAMAGED:
                 this.defender.addDps();
                 break;
+            case PLAYER_JUMP:
+                this.defender.onPlayerJump();
+                break;
+            default:
+                System.out.println("--default case - ActionObserver--");
+                break;
         }
         
     }
