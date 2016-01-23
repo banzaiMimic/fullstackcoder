@@ -7,6 +7,7 @@ import com.devstackio.fullstackcoder.entity.defender.SamuraiDefender;
 import com.devstackio.fullstackcoder.gamestates.SharedGameState;
 import com.devstackio.fullstackcoder.observer.ActionObserver;
 import com.devstackio.fullstackcoder.utils.LineGenerator;
+import com.devstackio.fullstackcoder.utils.rain.RainGenerator;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -19,6 +20,7 @@ public class BaseDefenderTest extends SharedGameState {
     private BlockGenerator blockGenerator;
     private IoKeyListener ioKeyListener;
     private IDefender defender;
+    private final RainGenerator rainGenerator = RainGenerator.INSTANCE;
 
     @Override
     public int getID() {
@@ -49,6 +51,7 @@ public class BaseDefenderTest extends SharedGameState {
         this.actionObserver.setEnemyBlock( this.blockGenerator.getEnemyBlock() );
         this.actionObserver.setDefender( this.defender );
         
+        this.rainGenerator.setGraphics( gc.getGraphics() );
         //@Todo pass reference to observables into ioKeyListener ... maybe just <this> and deal with actions via switch
     }
 
@@ -58,6 +61,7 @@ public class BaseDefenderTest extends SharedGameState {
         grphcs.setColor(Color.white);
         this.blockGenerator.ioDraw();
         this.blockGenerator.getDefender().drawHealth(grphcs);
+        this.rainGenerator.draw();
         
     }
 
@@ -65,6 +69,7 @@ public class BaseDefenderTest extends SharedGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         
         this.blockGenerator.ioUpdate( i );
+        this.rainGenerator.update( i );
         
     }
     
